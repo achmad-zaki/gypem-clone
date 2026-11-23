@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->string('poster');
             $table->string('slug');
-            $table->integer('price');
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }
