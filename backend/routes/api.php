@@ -9,7 +9,7 @@ use App\Http\Controllers\LevelController;
 
 
 
-Route::middleware('throttle:api')->group(function () {
+
 Route::get('/events', [EventController::class, 'index']);
 Route::post('/events', [EventController::class, 'store']);
 Route::get('/events/{id}', [EventController::class, 'show']);
@@ -27,5 +27,4 @@ Route::post('/levels', [LevelController::class, 'store']);
 Route::get('/levels/{id}', [LevelController::class, 'show']);
 Route::patch('/levels/{id}', [LevelController::class, 'update']);
 Route::delete('/levels/{id}', [LevelController::class, 'destroy']);
-});
 
