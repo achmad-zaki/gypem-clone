@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         CategorySeeder::class,
         EventSeeder::class,
         EventSeeder::class,
+        LevelSeeder::class,
     ]);
 
       

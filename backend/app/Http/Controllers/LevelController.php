@@ -13,10 +13,10 @@ class LevelController extends Controller
     public function index()
     {
          return response()->json([
-            'success' => true,
-            'message' => 'List Data Levels',
-            'data'    => Level::with('events')->latest()->paginate(15),
-        ], 200);
+        'success' => true,
+        'message' => 'List Data Levels',
+         'data' => Level::latest()->get(['id', 'name']),
+    ], 200);
     }
 
     /**

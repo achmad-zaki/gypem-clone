@@ -22,10 +22,10 @@ Route::get('/category/{id}', [CategoryController::class, 'show']);
 Route::patch('/category/{id}', [CategoryController::class, 'update']);
 Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
 
-Route::get('/level', [LevelController::class, 'index']);
-Route::post('/level', [LevelController::class, 'store']);
-Route::get('/level/{id}', [LevelController::class, 'show']);
-Route::patch('/level/{id}', [LevelController::class, 'update']);
-Route::delete('/level/{id}', [LevelController::class, 'destroy']);
+Route::get('/levels', [LevelController::class, 'index']);
+Route::post('/levels', [LevelController::class, 'store']);
+Route::get('/levels/{id}', [LevelController::class, 'show']);
+Route::patch('/levels/{id}', [LevelController::class, 'update']);
+Route::delete('/levels/{id}', [LevelController::class, 'destroy']);
 });
 
