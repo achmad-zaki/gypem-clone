@@ -1,122 +1,81 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import Logo from "./assets/react.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="bg-gray-50 min-h-screen flex items-center justify-center rounded-md">
+      <div className="flex flex-col items-center">
+        <div className="w-full max-w-sm bg-white border border-gray-300 p-10 rounded-md">
+          <div className="flex flex-col items-center justify-center space-y-3">
+            {/* image */}
+            <img src={Logo} alt="React Logo" className="w-15 h-15 space-y-15" />
+
+            {/* text */}
+            <div className="space-y-1.5 text-center">
+              <h3 className="text-2xl font-semibold space-y-30 ">Login Page</h3>
+              <p className="text-lg">This is login page</p>
+            </div>
+
+            {/* form */}
+            <div className="w-full space-y-3">
+              <div className="space-y-1 px-2 flex flex-col">
+                <label htmlFor="">Email</label>
+                <input
+                  placeholder="Enter Your Email"
+                  className="border border-gray-400 px-4 py-1 rounded-md"
+                  type="text"
+                />
+              </div>
+              <div className="space-y-1 px-2 flex flex-col ">
+                <label htmlFor="">Password</label>
+                <input
+                  placeholder="Enter Your Password"
+                  className="border border-gray-400 px-4 py-1 rounded-md"
+                  type="text"
+                />
+              </div>
+            </div>
+            <button className="mt-5 bg-indigo-500 px-6 py-1.5 text-white w-full rounded-md">
+              Submit
+            </button>
+          </div>
+          <div className="flex items-center justify-center gap-0">
+            <p className="px-2 text-gray-300">Already have an account?</p>
+            <p className="font-bold">Login</p>
+          </div>
+          <div className="flex items-center gap-3 w-full my-3">
+            <div className="flex-1 border-t border-gray-200"></div>
+            <span className="text-sm text-gray-400">or continue with</span>
+            <div className="flex-1 border-t border-gray-200"></div>
+          </div>
+          <button className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 hover:bg-gray-50 transition">
+            <img
+              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+              alt="Google Logo"
+              className="w-4 h-4"
+            />
+            <span className="text-sm font-medium text-gray-800">
+              Google account
+            </span>
+          </button>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+        <div className="w-full max-w-md px-2 mt-2">
+          <p className="text-xs text-gray-400 text-center leading-relaxed">
+            By clicking "Submit", you agree to ThinkGPT's{" "}
+            <a href="#" className="text-gray-600 underline">
+              User Agreement
+            </a>
+            , and{" "}
+            <a href="#" className="text-gray-600 underline">
+              Privacy Policy
+            </a>
+            , while we prioritize your privacy and trust, guiding you through
+            innovative interactions while safeguarding your personal
+            information.
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
