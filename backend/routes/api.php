@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\EventController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\Api\LevelController;
+use App\Http\Controllers\LevelController;
 
 
 
@@ -22,10 +22,10 @@ Route::get('/category/{id}', [CategoryController::class, 'show']);
 Route::patch('/category/{id}', [CategoryController::class, 'update']);
 Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
 
-Route::get('/level', [CategoryController::class, 'index']);
-Route::post('/level', [CategoryController::class, 'store']);
-Route::get('/level/{id}', [CategoryController::class, 'show']);
-Route::patch('/level/{id}', [CategoryController::class, 'update']);
-Route::delete('/level/{id}', [CategoryController::class, 'destroy']);
+Route::get('/level', [LevelController::class, 'index']);
+Route::post('/level', [LevelController::class, 'store']);
+Route::get('/level/{id}', [LevelController::class, 'show']);
+Route::patch('/level/{id}', [LevelController::class, 'update']);
+Route::delete('/level/{id}', [LevelController::class, 'destroy']);
 });
 
