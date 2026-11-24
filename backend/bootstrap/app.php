@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -13,10 +14,33 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->redirectGuestsTo(function (Request $request) {
+            if ($request->is('api/*') || $request->expectsJson()) {
+                return null;
+            }
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );
+
+        $exceptions->render(function (AuthenticationException $e, Request $request) {
+            if ($request->is('api/*') || $request->expectsJson()) {
+                $message = 'Unauthenticated. Silakan login terlebih dahulu.';
+
+                if ($request->is('api/category*')) {
+                    $message = 'Unauthenticated. Silakan login untuk mengakses kategori.';
+                } elseif ($request->is('api/levels*')) {
+                    $message = 'Unauthenticated. Silakan login untuk mengakses level.';
+                } elseif ($request->is('api/events*')) {
+                    $message = 'Unauthenticated. Silakan login untuk mengakses event.';
+                }
+
+                return response()->json([
+                    'success' => false,
+                    'message' => $message,
+                ], 401);
+            }
+        });
     })->create();
